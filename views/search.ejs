@@ -1,0 +1,351 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>JOBACT</title>
+    <script
+      src="https://kit.fontawesome.com/f7d8e8c4f0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- favicon starts -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/selection.png" />
+    <!-- favicon ends -->
+    <link rel="stylesheet" href="css/search.css" />
+  </head>
+  <body id="background">
+    <!-- nav bar code starts -->
+    <div class="nav_bar row_center" style="justify-content: space-around">
+      <div class="row_center">
+        <span class="job_portal_heading">JobPortal</span>
+        <a href="#" class="img_icon"
+          ><img
+            src="images/selection.png"
+            alt="job_portal_icon"
+            class="img_icon"
+        /></a>
+      </div>
+      <div
+        style="
+          color: white;
+          font-size: 3.5vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div>
+          <i class="fa-solid fa-user"></i>
+          <%= user.fname%> <%= user.lname%>
+        </div>
+
+        <div style="margin-left: 1vw;">
+          <a href="/signin/signout" title="sign out" style="color: white; font-size: 3.5vh"
+            ><i class="fa-solid fa-right-from-bracket"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- <div
+        class="row_center"
+        style="justify-content: space-between; width: 46vw"
+      > -->
+      <!-- sign in form starts -->
+      <!-- <div>
+          <form action="/searchHome">
+            <input type="text" placeholder="Email" class="input_box" />
+            <input type="password" placeholder="Password" class="input_box" />
+            <button type="submit" class="sign_in_btn">Sign in</button>
+          </form>
+        </div> -->
+      <!-- sign in form ends -->
+      <!-- forgot password Recruiter? starts -->
+      <!-- <div>
+          <a href=""
+            ><span
+              class="link_opt"
+              style="margin-right: 0.5vw; margin-left: 0.55vw"
+              >Forgot Password?</span
+            ></a
+          >
+          <a href=""><span class="link_opt">Recruiter?</span></a>
+        </div> -->
+      <!-- forgot password Recruiter? ends -->
+      <!-- </div> -->
+      <!-- </div> -->
+      <!-- navigation options ends -->
+    </div>
+    <!-- Welcome part of website starts-->
+    <div>
+      <!-- welcome image -->
+      <div>
+        <img src="images/intro_img.jpg" id="welcome_img" />
+      </div>
+      <!-- welcome image ends -->
+      <!-- website part of website add ons starts -->
+      <div id="background_home_add_ons">
+        <!-- website quote starts -->
+        <h1 class="absolutepos" style="font-size: 300%; color: white">
+          Unleash your potential with us
+        </h1>
+        <!-- website quote ends -->
+        <!-- search box starts -->
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <div id="search_box">
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <form
+                action="/signin/filter/?user_id=<%=user.id%>"
+                method="post"
+                style="
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  margin-top: 2.1vh;
+                "
+              >
+                <input
+                  id="search_on_home"
+                  type="text"
+                  name="search"
+                  placeholder="search..."
+                />
+                <button id="search_btn_for_search_on_home">
+                  <div id="search_btn_for_search_on_home_text">
+                    <div style="color: white">search</div>
+                  </div>
+                </button>
+              </form>
+            </div>
+          </div>
+          <!-- filter options starts -->
+          <div class="flex_style" style="display: flex">
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="text">Job Level</span
+                ><i class="fa-solid fa-angle-up" id="arrow"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="text">Job Function</span
+                ><i class="fa-solid fa-angle-up" id="arrow"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="text">Employment Type</span
+                ><i class="fa-solid fa-angle-up" id="arrow"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="text">Locations</span
+                ><i class="fa-solid fa-angle-up" id="arrow"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="dropbtn">
+                <span class="text">Education</span
+                ><i class="fa-solid fa-angle-up" id="arrow"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+              </div>
+            </div>
+          </div>
+          <!-- filter options ends -->
+          <!-- line starts -->
+          <div id="line"></div>
+          <!-- line ends -->
+          <!-- filters selected starts -->
+          <div class="flex_style">
+            <% for (let x=0; x<search_list.length;x++) {%>
+            <div class="filter_btns">
+              <span><%=search_list[x].search%></span>
+              <a href="/signin/deleteSearch/?id=<%=search_list[x].id%>&&userid=<%= user.id%>">
+                <i class="fa-solid fa-circle-xmark cross"></i
+              ></a>
+            </div>
+            <%}%>
+          </div>
+          <!-- filters selected ends -->
+        </div>
+        <!-- search box ends -->
+      </div>
+      <!-- website part of website add ons ends -->
+    </div>
+    <!-- Welcome part of website ends-->
+    <!-- main content starts -->
+    <div class="companies">
+      <h1>Land into your dream companies</h1>
+      <!-- companies list starts -->
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          width: 100vw;
+          justify-content: space-around;
+        "
+      >
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+        <div class="box">
+          <img
+            src="https://about.fb.com/wp-content/uploads/2021/10/06_211025_CompanyEC_16x9__30fps__1080-1.gif"
+            alt=""
+          />
+        </div>
+      </div>
+      <!-- companies list ends -->
+    </div>
+    <header class="testimonials_header">
+      <h1>Testimonials</h1>
+      <h2>Lets see what our clients say about us!</h2>
+    </header>
+    <div class="testimonials">
+      <div class="client1">
+        <p>
+          A testimonial is an honest endorsement of your product or service that
+          usually comes from a customer, colleague, or peer who has benefited
+          from or experienced success as a result of the work you did for them.
+        </p>
+      </div>
+      <div class="client1">
+        <p>
+          A testimonial is an honest endorsement of your product or service that
+          usually comes from a customer, colleague, or peer who has benefited
+          from or experienced success as a result of the work you did for them.
+        </p>
+      </div>
+      <div class="client1">
+        <p>
+          A testimonial is an honest endorsement of your product or service that
+          usually comes from a customer, colleague, or peer who has benefited
+          from or experienced success as a result of the work you did for them.
+        </p>
+      </div>
+    </div>
+    <div class="blogs">
+      <header class="blog_header">
+        <h1>Career Advices- Blogs</h1>
+        <h2>Learn more career tips from company's recruiter</h2>
+      </header>
+      <div class="blog_container">
+        <div class="blog1">
+          <a href="#">
+            <div class="blog1tag"></div>
+          </a>
+          <a href="#">
+            <div class="blog-info">
+              <h3>How to choose which job is best for you?</h3>
+            </div>
+          </a>
+          <!-- </a> -->
+        </div>
+        <div class="blog2">
+          <a href="#">
+            <div class="blog2tag"></div>
+          </a>
+          <a href="#">
+            <div class="blog-info">
+              <h3>How to choose which job is best for you?</h3>
+            </div>
+          </a>
+        </div>
+        <div class="blog3">
+          <a href="#">
+            <div class="blog3tag"></div>
+          </a>
+          <a href="#">
+            <div class="blog-info">
+              <h3>How to choose which job is best for you?</h3>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer"></div>
+    <!-- main contents ends -->
+  </body>
+  <script type="text/javascript" src="shape.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</html>
