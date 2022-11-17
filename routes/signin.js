@@ -2,6 +2,7 @@ const express = require("express");
 const User = require("../models/signup");
 const search = require("../models/search");
 const router = express.Router();
+const ObjectId = require('mongodb').ObjectId;
 const app = express();
 const homeController = require("../controllers/home_controller");
 var userid;
@@ -41,10 +42,12 @@ router.get("/", function (req, res) {
   var list;
   search.find({},function (err, searches){
     list=searches;
-    console.log(list);
+    //console.log(list);
   });
   var userr;
-  User.findOne({id:req.cookies.user_id}, function (err, user) {
+  var cookieid=req.cookies.user_id;
+  console.log(cookieid);
+  User.findOne({_id:ObjectId(cookieid)}, function (err, user) {
     if (err) {
       console.log("Error in fetching USER from db");
       return;
