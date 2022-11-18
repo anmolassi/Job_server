@@ -17,6 +17,10 @@
     />
     <!-- favicon ends -->
     <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/company_homepage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
   </head>
   <body id="background">
     <!-- nav bar code starts -->
@@ -54,39 +58,45 @@
         </div>
       </div>
     </div>
-    <div id="create-jobs">
-        <span>Create Job</span>
+    <div id="create-jobs" class="block">
+        <span class="heading-block">Create Job</span>
         <form action="signin-recruiter/create-job/?business_id=<%=user.id%>&&business_name=<%=user.business%>&&business_email=<%=user.email%>" method="post">
-            <label for="job-description">job-description</label>
-            <input type="text" id="job-description" name="jobdescription">
-            <label for="job-salary">job-salary</label>
-            <input type="text" id="job-salary" name="jobsalary">
-            <button type="submit">Post job</button>
+            
+            <input type="text" id="job-description" name="jobdescription" class="input-box" placeholder="Job description...">
+           
+            <input type="text" id="job-salary" name="jobsalary" placeholder="Job salary..." class="input-box">
+            <button type="submit" id="button-post">Post job</button>
         </form>
+        <div class="horizontal-line"></div>
     </div>
-    <div>
-      <span>POSTED JOBS</span>
-      <div>
+    <div class="block">
+      <span class="heading-block">POSTED JOBS</span>
+      <div class="column-arrange">
           <% for (let x=0; x<job_list.length;x++) {%>
-              <div>
+              <div class="display-info">
                 <div><%=job_list[x].job_description%></div>
-                <div><%=job_list[x].job_salary%></div>
+                <div ><%=job_list[x].job_salary%></div>
                 <a href="/signin-recruiter/delete-job/?id=<%=job_list[x].id%>">
                   <i class="fa-solid fa-circle-xmark cross"></i
                 ></a>
               </div>
+              <div class="horizontal-line"></div>
               <%}%>
       </div>
   </div>
-  <div>
-    <span>APPLICATIONS</span>
-    <% for (let x=0; x<applicants_list.length;x++) {%>
-      <div>
-        <div><%=applicants_list[x].job_description%></div>
-        <div><%=applicants_list[x].f_name%><%=applicants_list[x].l_name%></div>
-        <div><%=applicants_list[x].applicant_email%></div>
-      </div>
-      <%}%>
+  <div class="block">
+    <span class="heading-block">APPLICATIONS</span>
+    <div class="column-arrange">
+      <% for (let x=0; x<applicants_list.length;x++) {%>
+        <div class="display-info">
+          <div class="size"><%=applicants_list[x].job_description%></div>
+          <div class="size"><%=applicants_list[x].f_name%>&nbsp;<%=applicants_list[x].l_name%></div>
+          <div class="size"><%=applicants_list[x].applicant_email%></div>
+        </div>
+        <div class="horizontal-line"></div>
+        <%}%>
+    </div>
+    
   </div>
   </body>
   <script type="text/javascript" src="shape.js"></script>

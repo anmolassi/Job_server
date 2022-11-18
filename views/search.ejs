@@ -13,6 +13,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="images/selection.png" />
     <!-- favicon ends -->
     <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/company_homepage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
   </head>
   <body id="background">
     <!-- nav bar code starts -->
@@ -46,34 +50,6 @@
           ></a>
         </div>
       </div>
-
-      <!-- <div
-        class="row_center"
-        style="justify-content: space-between; width: 46vw"
-      > -->
-      <!-- sign in form starts -->
-      <!-- <div>
-          <form action="/searchHome">
-            <input type="text" placeholder="Email" class="input_box" />
-            <input type="password" placeholder="Password" class="input_box" />
-            <button type="submit" class="sign_in_btn">Sign in</button>
-          </form>
-        </div> -->
-      <!-- sign in form ends -->
-      <!-- forgot password Recruiter? starts -->
-      <!-- <div>
-          <a href=""
-            ><span
-              class="link_opt"
-              style="margin-right: 0.5vw; margin-left: 0.55vw"
-              >Forgot Password?</span
-            ></a
-          >
-          <a href=""><span class="link_opt">Recruiter?</span></a>
-        </div> -->
-      <!-- forgot password Recruiter? ends -->
-      <!-- </div> -->
-      <!-- </div> -->
       <!-- navigation options ends -->
     </div>
     <!-- Welcome part of website starts-->
@@ -208,18 +184,21 @@
         </div>
         <!-- search box ends -->
         <!-- JOBS STARTS -->
-        <div>
-          <% for (let x=0; x<job_list.length;x++) {%>
-            <div>
-              <span><%=job_list[x].business_name%></span>
-              <br>
-              <span><%=job_list[x].job_description%></span>
-              <br>
-              <span><%=job_list[x].job_salary%></span>
-              <br>
-              <span><%=job_list[x].email%></span>
-              <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>&&fname=<%=user.fname%>&&lname=<%=user.lname%>">apply</a>
+        <div class="block">
+          <span class="heading-block">APPLY FOR JOBS</span>
+            <div class="column-arrange">
+              <% for (let x=0; x<job_list.length;x++) {%>
+                <div class="display-info" style="margin-left: -5vw;">
+                  <span class="size1"><%=job_list[x].business_name%></span>
+                  <span class="size1"><%=job_list[x].job_description%></span>
+                  <span class="size1"><%=job_list[x].job_salary%></span>
+                  <span class="size1"><%=job_list[x].email%></span>
+                  <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>&&fname=<%=user.fname%>&&lname=<%=user.lname%>" style="text-align: left;">apply</a>
+                  
+                </div>
+                <div class="horizontal-line"></div>
             </div>
+            
             <%}%>
         </div>
         <!-- JOB ENDS -->
