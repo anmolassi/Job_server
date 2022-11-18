@@ -6,6 +6,12 @@ const User = require("../models/signup");
 module.exports.signOut=function(req,res){
     let id=req.cookies.user_id;
     console.log(id);
-    res.cookies("user_id",""); 
-    return res.redirect("back");
+    res.cookie("user_id",""); 
+    return res.redirect("/");
+}
+module.exports.signOutRec=function(req,res){
+  let id=req.cookies.user_id;
+  console.log(id);
+  res.cookie("user_id",""); 
+  return res.redirect("/");
 }

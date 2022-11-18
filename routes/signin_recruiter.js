@@ -4,6 +4,7 @@ const search = require("../models/jobs_post");
 const router = express.Router();
 const app = express();
 const homeController = require("../controllers/home_controller");
+const userController = require("../controllers/user_controller");
 var globaluser;
 var joblist;
 var companyid;
@@ -50,4 +51,5 @@ router.get("/", function (req, res) {
 });
 router.use("/create-job", require("./create-job"));
 router.use("/delete-job", require("./delete-job"));
+router.get('/sign-out',userController.signOut);
 module.exports = router;

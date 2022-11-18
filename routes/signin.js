@@ -5,6 +5,10 @@ const router = express.Router();
 const ObjectId = require('mongodb').ObjectId;
 const app = express();
 const homeController = require("../controllers/home_controller");
+const userController = require("../controllers/user_controller");
+const passport =require('passport');
+app.use(passport.initialize());
+app.use(passport.session());
 var userid;
 router.post("/", function (req, res) {
   console.log(req.body);
@@ -33,7 +37,7 @@ router.post("/", function (req, res) {
   });
 });
 
-
+router.get('/sign-out',userController.signOut);
 
 
 router.get("/", function (req, res) {
