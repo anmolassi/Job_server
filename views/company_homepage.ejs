@@ -1,0 +1,84 @@
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- title -->
+    <title>JOBACT</title>
+    <script
+      src="https://kit.fontawesome.com/f7d8e8c4f0.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- favicon starts -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="images/selection.png"
+    />
+    <!-- favicon ends -->
+    <link rel="stylesheet" href="css/search.css" />
+  </head>
+  <body id="background">
+    <!-- nav bar code starts -->
+    <div class="nav_bar row_center" style="justify-content: space-around">
+      <div class="row_center">
+        <span class="job_portal_heading">JobPortal</span>
+        <a href="#" class="img_icon"
+          ><img
+            src="images/selection.png"
+            alt="job_portal_icon"
+            class="img_icon"
+        /></a>
+      </div>
+      <div
+        style="
+          color: white;
+          font-size: 3.5vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        "
+      >
+        <div>
+          <i class="fa-solid fa-building"></i>
+          <%= user.business%>
+        </div>
+
+        <div style="margin-left: 1vw">
+          <a
+            href="/signin/signout"
+            title="sign out"
+            style="color: white; font-size: 3.5vh"
+            ><i class="fa-solid fa-right-from-bracket"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+    <div id="create-jobs">
+        <span>Create Job</span>
+        <form action="signin-recruiter/create-job/?business_id=<%=user.id%>&&business_name=<%=user.business%>" method="post">
+            <label for="job-description">job-description</label>
+            <input type="text" id="job-description" name="jobdescription">
+            <label for="job-salary">job-salary</label>
+            <input type="text" id="job-salary" name="jobsalary">
+            <button type="submit">Post job</button>
+        </form>
+    </div>
+  </body>
+  <script type="text/javascript" src="shape.js"></script>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</html>
