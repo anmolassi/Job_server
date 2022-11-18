@@ -64,6 +64,19 @@
             <button type="submit">Post job</button>
         </form>
     </div>
+    <div>
+        <span>POSTED JOBS</span>
+        <div>
+            <% for (let x=0; x<job_list.length;x++) {%>
+                <div>
+                  <div><%=job_list[x].job_description%></div>
+                  <a href="/signin/deleteSearch/?id=<%=job_list[x].id%>>">
+                    <i class="fa-solid fa-circle-xmark cross"></i
+                  ></a>
+                </div>
+                <%}%>
+        </div>
+    </div>
   </body>
   <script type="text/javascript" src="shape.js"></script>
   <script
