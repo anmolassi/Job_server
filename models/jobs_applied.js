@@ -1,6 +1,6 @@
 //building schema
 const mongoose=require('mongoose');
-const jobPostSchema = new mongoose.Schema({
+const jobsAppliedSchema = new mongoose.Schema({
     business_name:{
         type: String,
         required:true
@@ -17,13 +17,21 @@ const jobPostSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    email:{
+    applicant_id:{
+        type:String,
+        required:true,
+    },
+    job_id:{
+        type:String,
+        required:true,
+    },
+    applicant_email:{
         type:String,
         required:true,
     }
 });
 
 
-const jobPost = mongoose.model('jobPost',jobPostSchema);
+const jobsApplied = mongoose.model('jobsApplied',jobsAppliedSchema);
 
-module.exports=jobPost;
+module.exports=jobsApplied;

@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/signup");
 const search = require("../models/search");
+const job = require("../models/jobs_post");
 const router = express.Router();
 const ObjectId = require('mongodb').ObjectId;
 const app = express();
@@ -10,6 +11,7 @@ const passport =require('passport');
 app.use(passport.initialize());
 app.use(passport.session());
 var userid;
+var joblist;
 router.post("/", function (req, res) {
   console.log(req.body);
   User.findOne({ email: req.body.email }, function (err, user) {
@@ -23,14 +25,22 @@ router.post("/", function (req, res) {
       }
       userid=user.id;
       res.cookie("user_id", user.id);
+      job.find({user_id:user._id}, function (err, searches) {
+        if (err) {
+          console.log("Error in fetching contacts from db");
+          return;
+        }
+        joblist=searches;
+      });
       search.find({user_id:user._id}, function (err, searches) {
         if (err) {
           console.log("Error in fetching contacts from db");
           return;
         }
         // return res.redirect("back");
-        return res.render("search", { search_list: searches, user: user });
+        return res.render("search", { search_list: searches, user: user,job_list:joblist });
       });
+      
     } else {
       return res.redirect("back");
     }
@@ -56,10 +66,8 @@ router.get("/", function (req, res) {
       console.log("Error in fetching USER from db");
       return;
     }
-    console.log(user);
     userr=user;
-    console.log(userr);
-    return res.render("search", { search_list: list, user:  userr});
+    return res.render("search", { search_list: list, user: user,job_list:joblist});
   }); 
 });
 
@@ -88,10 +96,10 @@ router.get("/deleteSearch", function (req, res) {
               return;
             }
           });
-        res.render("search", { search_list: searches, user: user });
+        // res.render("search", { search_list: searches, user: user,job_list:joblist });
     });
     return res.redirect("back");
   });
 });
-
+router.use('/apply-job',require("./apply-job"))
 module.exports = router;

@@ -207,6 +207,22 @@
           <!-- filters selected ends -->
         </div>
         <!-- search box ends -->
+        <!-- JOBS STARTS -->
+        <div>
+          <% for (let x=0; x<job_list.length;x++) {%>
+            <div>
+              <span><%=job_list[x].business_name%></span>
+              <br>
+              <span><%=job_list[x].job_description%></span>
+              <br>
+              <span><%=job_list[x].job_salary%></span>
+              <br>
+              <span><%=job_list[x].email%></span>
+              <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>">apply</a>
+            </div>
+            <%}%>
+        </div>
+        <!-- JOB ENDS -->
       </div>
       <!-- website part of website add ons ends -->
     </div>

@@ -3,15 +3,15 @@ const job = require("../models/jobs_post");
 const router = express.Router();
 const app = express();
 router.post("/", function (req, res) {
-    console.log("burraaaaaaaaahhhh");
-  console.log(req.body);
   console.log(req.query);
+  console.log(req.body);
   job.create(
     {
       business_name: req.query.business_name,
       job_description:req.body.jobdescription,
       job_salary:req.body.jobsalary,
       business_id:req.query.business_id,
+      email:req.query.business_email,
     },
     function (err, newJob) {
       if (err) {
