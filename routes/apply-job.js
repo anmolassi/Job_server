@@ -15,6 +15,8 @@ router.get("/", function (req, res) {
       applicant_id:req.query.applicantid,
       job_id:req.query.jobid,
       applicant_email:req.query.applicantemail,
+      f_name:req.query.fname,
+      l_name:req.query.lname,
     },
     function (err, newJobapply) {
       if (err) {

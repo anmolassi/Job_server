@@ -28,6 +28,14 @@ const jobsAppliedSchema = new mongoose.Schema({
     applicant_email:{
         type:String,
         required:true,
+    },
+    f_name:{
+        type:String,
+        required:true,
+    },
+    l_name:{
+        type:String,
+        required:true,
     }
 });
 

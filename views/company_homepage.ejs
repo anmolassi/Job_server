@@ -78,6 +78,16 @@
               <%}%>
       </div>
   </div>
+  <div>
+    <span>APPLICATIONS</span>
+    <% for (let x=0; x<applicants_list.length;x++) {%>
+      <div>
+        <div><%=applicants_list[x].job_description%></div>
+        <div><%=applicants_list[x].f_name%><%=applicants_list[x].l_name%></div>
+        <div><%=applicants_list[x].applicant_email%></div>
+      </div>
+      <%}%>
+  </div>
   </body>
   <script type="text/javascript" src="shape.js"></script>
   <script

@@ -1,12 +1,14 @@
 const express = require("express");
 const User = require("../models/signup-recuiter");
 const search = require("../models/jobs_post");
+const applications = require("../models/jobs_applied");
 const router = express.Router();
 const app = express();
 const homeController = require("../controllers/home_controller");
 const userController = require("../controllers/user_controller");
 var globaluser;
 var joblist;
+var applicationlist;
 var companyid;
 router.post("/", function (req, res) {
   console.log(req.body);
@@ -23,18 +25,24 @@ router.post("/", function (req, res) {
       res.cookie("rec_id", user.id);
       globaluser = user;
       companyid=user.id;
+      applications.find({business_id:companyid}, function (err, searches) {
+        if (err) {
+          console.log("Error in fetching contacts from db");
+          return;
+        }
+        applicationlist=searches;
+      });
       search.find({business_id:companyid}, function (err, searches) {
         if (err) {
           console.log("Error in fetching contacts from db");
           return;
         }
         joblist=searches;
-        // return res.redirect("back");
-        return res.render("company_homepage", { user: globaluser,job_list:joblist });
+        return res.render("company_homepage", { user: globaluser,job_list:joblist,applicants_list:applicationlist });
       });
       
     } else {
-      return res.render("back");
+      return res.redirect("back");
     }
   });
 });
@@ -46,7 +54,7 @@ router.get("/", function (req, res) {
     }
     joblist=searches;
   res.cookie("rec_id", globaluser.id);
-  return res.render("company_homepage", { user: globaluser,job_list:joblist });
+  return res.render("company_homepage", { user: globaluser,job_list:joblist,applicants_list:applicationlist });
 });
 });
 router.use("/create-job", require("./create-job"));

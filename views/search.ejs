@@ -218,7 +218,7 @@
               <span><%=job_list[x].job_salary%></span>
               <br>
               <span><%=job_list[x].email%></span>
-              <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>">apply</a>
+              <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>&&fname=<%=user.fname%>&&lname=<%=user.lname%>">apply</a>
             </div>
             <%}%>
         </div>
