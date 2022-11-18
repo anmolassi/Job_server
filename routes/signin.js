@@ -19,7 +19,7 @@ router.post("/", function (req, res) {
       }
       userid=user.id;
       res.cookie("user_id", user.id);
-      search.find({}, function (err, searches) {
+      search.find({user_id:user._id}, function (err, searches) {
         if (err) {
           console.log("Error in fetching contacts from db");
           return;
@@ -40,7 +40,7 @@ router.get("/", function (req, res) {
   // return res.redirect("back");
   res.cookie("user_id", userid);
   var list;
-  search.find({},function (err, searches){
+  search.find({user_id:userid},function (err, searches){
     list=searches;
     //console.log(list);
   });

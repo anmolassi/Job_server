@@ -6,6 +6,7 @@ const app = express();
 const homeController = require("../controllers/home_controller");
 var globaluser;
 var joblist;
+var companyid;
 router.post("/", function (req, res) {
   console.log(req.body);
   User.findOne({ email: req.body.business }, function (err, user) {
@@ -20,7 +21,8 @@ router.post("/", function (req, res) {
       }
       res.cookie("rec_id", user.id);
       globaluser = user;
-      search.find({}, function (err, searches) {
+      companyid=user.id;
+      search.find({business_id:companyid}, function (err, searches) {
         if (err) {
           console.log("Error in fetching contacts from db");
           return;
@@ -36,7 +38,7 @@ router.post("/", function (req, res) {
   });
 });
 router.get("/", function (req, res) {
-  search.find({}, function (err, searches) {
+  search.find({business_id:companyid}, function (err, searches) {
     if (err) {
       console.log("Error in fetching contacts from db");
       return;
