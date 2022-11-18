@@ -33,11 +33,11 @@ router.post('/',function(req,res){
             },
           });
           let info = await transporter.sendMail({
-            from: `${testAccount.user}`, 
+            from: `jobportal@gmail.com`, 
             to: `${req.body.email}`, 
             subject: "Welcome to JOB PORTAL", 
             text: "Welcome to JOB PORTAL", 
-            html: `<b>Hi ${req.body.fname} ${req.body.lname} </b>`,
+            html: `<b>Hi ${req.body.fname} ${req.body.lname}, Welcome to the JOB PORTAL </b>`,
           });
         
           console.log("Message sent: %s", info.messageId);
