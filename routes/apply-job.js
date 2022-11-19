@@ -38,12 +38,11 @@ router.get("/", function (req, res) {
         from: "anmolassi01@gmail.com",
         to:`${newJobapply.applicant_email}`,
         subject:"New Job Applied",
-        text:`Hi ${newJobapply.f_name} ${newJobapply.l_name}, You have sucvessfully applied for:
-        Company: ${newJobapply.business_name}
-        Job Description: ${newJobapply.job_description}
-        Job Salary: ${newJobapply.job_salary}
-        Kindly send your resume on: 
-        ${req.query.business_email}`
+        text:`Hi ${newJobapply.f_name} ${newJobapply.l_name}, You have successfully applied for:
+Company: ${req.query.businessname}
+Job Description: ${newJobapply.job_description}
+Job Salary: ${newJobapply.job_salary}
+Kindly send your resume on: ${req.query.business_email}`
       }
       mailTransporter.sendMail(details,(err)=>{
         if(err){
