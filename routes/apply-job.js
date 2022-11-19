@@ -2,6 +2,7 @@ const express = require("express");
 const job_apply = require("../models/jobs_applied");
 const router = express.Router();
 const app = express();
+var nodemailer = require('nodemailer');
 router.get("/", function (req, res) {
   console.log("burraaaaaaaaahhhh");
   console.log(req.body);
@@ -26,9 +27,35 @@ router.get("/", function (req, res) {
         return;
       }
       console.log("**********", newJobapply);
+      let mailTransporter = nodemailer.createTransport({
+        service: "gmail",
+        auth:{
+          user: 'anmolassi01@gmail.com',
+           pass: 'mekngqzfjtcmujjt'
+        },
+      });
+      let details={
+        from: "anmolassi01@gmail.com",
+        to:`${newJobapply.applicant_email}`,
+        subject:"New Job Applied",
+        text:`Hi ${newJobapply.f_name} ${newJobapply.l_name}, You have sucvessfully applied for:
+        Company: ${newJobapply.business_name}
+        Job Description: ${newJobapply.job_description}
+        Job Salary: ${newJobapply.job_salary}
+        Kindly send your resume on: 
+        ${req.query.business_email}`
+      }
+      mailTransporter.sendMail(details,(err)=>{
+        if(err){
+          console.log(err);
+          console.log("it has an error");
+        }else{
+          console.log("job apply email has sent !");
+        }
+      });
     }
   );
-  return res.render('index',{});
-  //return res.redirect('back');
+  // return res.render('index',{});
+  return res.redirect('back');
 });
 module.exports = router;

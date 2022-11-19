@@ -20,30 +20,27 @@ router.post('/',function(req,res){
         {
           return res.render('duplicateCredentials');
         }
-        async function main() {
-          let testAccount = await nodemailer.createTestAccount();
-          console.log(testAccount.user);
-          let transporter = nodemailer.createTransport({
-            host: "smtp.ethereal.email",
-            port: 587,
-            secure: false, // true for 465, false for other ports
-            auth: {
-              user: testAccount.user,
-              pass: testAccount.pass, 
+          let mailTransporter = nodemailer.createTransport({
+            service: "gmail",
+            auth:{
+              user: 'anmolassi01@gmail.com',
+               pass: 'mekngqzfjtcmujjt'
             },
           });
-          let info = await transporter.sendMail({
-            from: `jobportal@gmail.com`, 
-            to: `${req.body.email}`, 
-            subject: "Welcome to JOB PORTAL", 
-            text: "Welcome to JOB PORTAL", 
-            html: `<b>Hi ${req.body.fname} ${req.body.lname}, Welcome to the JOB PORTAL </b>`,
+          let details={
+            from: "anmolassi01@gmail.com",
+            to:`${newContact.email}`,
+            subject:"Welcome to our family",
+            text:`Hi ${newContact.fname} ${newContact.lname}, welcome to the job portal.`
+          }
+          mailTransporter.sendMail(details,(err)=>{
+            if(err){
+              console.log(err);
+              console.log("it has an Error");
+            }else{
+              console.log("email has sent !");
+            }
           });
-        
-          console.log("Message sent: %s", info.messageId);
-          console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-        }
-        main().catch(console.error);
         console.log('**********',newContact);
       });
       return res.redirect('/');

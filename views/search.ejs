@@ -188,18 +188,18 @@
           <span class="heading-block">APPLY FOR JOBS</span>
             <div class="column-arrange">
               <% for (let x=0; x<job_list.length;x++) {%>
-                <div class="display-info" style="margin-left: -5vw;">
-                  <span class="size1"><%=job_list[x].business_name%></span>
-                  <span class="size1"><%=job_list[x].job_description%></span>
-                  <span class="size1"><%=job_list[x].job_salary%></span>
-                  <span class="size1"><%=job_list[x].email%></span>
-                  <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>&&fname=<%=user.fname%>&&lname=<%=user.lname%>" style="text-align: left;">apply</a>
-                  
+                <div class="display-info" style="margin-left:-4vw ;">
+                  <div class="size1"><%=job_list[x].business_name%></div>
+                  <div class="size1"><%=job_list[x].job_description%></div>
+                  <div class="size1"><%=job_list[x].job_salary%></div>
+                  <div class="size1"><%=job_list[x].email%></div>
+                  <a href="/signin/apply-job/?businessname=<%=job_list[x].business_name%>&&jobdescription=<%=job_list[x].job_description%>&&jobsalary=<%=job_list[x].job_salary%>&&businessid=<%=job_list[x].business_id%>&&applicantid=<%=user.id%>&&jobid=<%=job_list[x]._id%>&&applicantemail=<%=user.email%>&&fname=<%=user.fname%>&&lname=<%=user.lname%>&&business_email=<%=job_list[x].email%>" style="text-align: left;">apply</a>
                 </div>
                 <div class="horizontal-line"></div>
+                <%}%>
             </div>
             
-            <%}%>
+            
         </div>
         <!-- JOB ENDS -->
       </div>
@@ -327,7 +327,6 @@
     <div class="footer"></div>
     <!-- main contents ends -->
   </body>
-  <script type="text/javascript" src="shape.js"></script>
   <script
     src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
