@@ -36,6 +36,9 @@ const jobsAppliedSchema = new mongoose.Schema({
     l_name:{
         type:String,
         required:true,
+    },
+    resume:{
+        
     }
 });
 

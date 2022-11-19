@@ -17,6 +17,7 @@ router.get("/", function (req, res) {
       applicant_email:req.query.applicantemail,
       f_name:req.query.fname,
       l_name:req.query.lname,
+      resume:`${req.query.applicantemail}.pdf`
     },
     function (err, newJobapply) {
       if (err) {
@@ -27,6 +28,7 @@ router.get("/", function (req, res) {
       console.log("**********", newJobapply);
     }
   );
-  return res.redirect('back');
+  return res.render('index',{});
+  //return res.redirect('back');
 });
 module.exports = router;
