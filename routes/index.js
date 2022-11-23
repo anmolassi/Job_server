@@ -9,6 +9,7 @@ router.use('/signup',require('./signup'));
 router.use('/signin',require('./signin'));
 router.use('/signup-recruiter',require('./signup-recruiter'));
 router.use('/signin-recruiter',require('./signin_recruiter'));
+router.get('/blogs',homeController.blogs);
 // router.use('/searchHome',require('./search'));
 //router.use('/users',require('./users'));
 // for any further routes, access from here

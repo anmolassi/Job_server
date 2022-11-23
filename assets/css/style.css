@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Sono:wght@300&display=swap');
+*{
+    font-family: 'Sono', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+*::selection{
+    background-color: white;
+    color: black;
+}
+html{
+    overflow-x: hidden;
+    font-size: 63%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+}
+::-webkit-scrollbar{
+    height: .5rem;
+    width: 1rem;
+}
+::-webkit-scrollbar-thumb{
+    background-color: #235a79;
+    border-radius: 5rem;
+}
+body{
+    background-color: rgb(160, 160, 160);
+}
+section{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding:2 rem;
+}
+.header{
+    position: fixed;
+    top: 0;left: 0;right: 0;
+    z-index: 1000;
+    background-color: #2d84b6;
+}
+.header .flex{
+    position: relative;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.header .flex .logo{
+    font-size: 3rem;
+    color: white;
+}
+.header .flex .navbar{
+    margin-left: 2.5rem;
+    color: white;
+    font-size: 2rem;
+}
+.header .flex .navbar a{
+    color: white;
+}
+
+.header .flex .navbar a:hover{
+    color: rgb(4, 52, 4);
+}
+#menu-btn{
+    cursor: pointer;
+    color: white;
+    font-size: 2.5rem;
+    display: none;
+}
+
+.home{
+    margin-top:  6rem;
+}
+.home .row{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.home .row .content{
+    flex: 1 1 40rem;
+    text-align: center;
+}
+.home .row .image{
+    flex: 1 1 40rem;
+}
+.home .row .image img{
+    width: 100%;
+}
+.home .row .content h2{
+    font-size: 10rem;
+    color: white;
+}
+/* .home .row .content span:hover{
+    color: rgb(64, 208, 64);
+} */
+.button{
+    padding: 10px 17px;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: lightgray;
+    font-size: 2rem;
+    color: black;
+}
+.button:hover{
+    color: #1076b1;
+    background-color: rgb(61, 58, 58);  
+}
+.button::before{
+    content: "";
+    position: absolute;
+    background-color: #283e4b;
+    width: 0;
+    height: 0;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    border-radius:50%;
+    transition: width .6s,height 0.6s;
+}
+
+.button:hover::before{
+    width:30px;
+    height: 30px;
+
+}
+
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+}
+@media (max-width:768px){
+    #menu-btn{
+
+        display: inline-block;
+    }
+    #menu-btn.fa-times{
+        transform: rotate(180);
+    }
+    .header .flex .navbar{
+        position: absolute;
+        top: 99%;left: 0;right: 0;
+        border-top: .1rem solid white;
+        border-bottom: .1rem solid white;
+        background-color: rgb(68, 144, 71);
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    .header .flex .navbar.active{
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+    .header .flex .navbar a{
+        display: block;
+        margin: 2rem;
+    }
+
+}
+@media (max-width:450px){
+    html{
+        font-size: 55%;
+    }
+}
+
+.count .box-container{
+    background-color: #4189b2;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8.5rem;
+    padding: 2rem;
+}
+
+.count .box-container .box svg{
+    color: red;
+    height: 6.2rem;
+    background: none;
+}
+
+.count .box-container .box  h3{
+    font-size: 3rem;
+    color: white;
+}
+.count .box-container .box p{
+    font-size: 2rem;
+    color: white;
+}
+
+
+
+
+.leftcolumn {
+    float: left;
+    width: 75%;
+  }
+  
+  /* Right column */
+  .rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+  }
+  
+  /* Fake image */
+  .Blogimg {
+    background-color: #1c648d;
+    width: 100%;
+    padding: 20px;
+    
+  }
+  
+  /* Add a card effect for articles */
+  .card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    height: 300px;
+    
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 20px;
+    text-align: center;
+    background: rgb(213, 159, 159);
+    margin-top: 20px;
+  }
+  
+  /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn {
+      width: 100%;
+      padding: 0;
+    }
+  }
+  a{
+    color: white;
+  }

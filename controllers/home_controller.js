@@ -7,3 +7,9 @@ module.exports.home = function(req, res){
         
     });
 }
+module.exports.blogs = function(req, res){
+    
+    return res.render('blogs', {
+        
+    });
+}
